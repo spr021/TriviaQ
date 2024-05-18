@@ -18,7 +18,7 @@ const ZoomBox = styled(Box)(() => ({
 }))
 
 const ZoomAnimationComponent = ({ children }: { children: ReactNode }) => {
-  const [trigger, setTrigger] = useState(false)
+  const [_, setTrigger] = useState(false)
 
   // Toggle the trigger every second
   useEffect(() => {
