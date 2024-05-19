@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { ScreenMode } from "./types"
 import ZoomAnimation from "./components/zoom/Zoom"
+import AppBar from "./components/appbar/AppBar"
 
 function getTimeUntil10PM() {
   const now = new Date()
@@ -29,15 +30,15 @@ function getTimeUntil10PM() {
   const seconds = Math.floor((difference % (1000 * 60)) / 1000)
 
   // Add leading zeros to single-digit numbers
-  const formattedHours = hours.toString().padStart(2, '0');
-  const formattedMinutes = minutes.toString().padStart(2, '0');
-  const formattedSeconds = seconds.toString().padStart(2, '0');
+  const formattedHours = hours.toString().padStart(2, "0")
+  const formattedMinutes = minutes.toString().padStart(2, "0")
+  const formattedSeconds = seconds.toString().padStart(2, "0")
 
   return {
     hours: formattedHours,
     minutes: formattedMinutes,
     formattedSeconds,
-    seconds
+    seconds,
   }
 }
 
@@ -95,6 +96,7 @@ function App() {
     <>
       {screenMode === ScreenMode.countDown && (
         <>
+          <AppBar />
           <div>
             <Lottie animationData={TimerAnimation} loop={true} />
           </div>
@@ -133,7 +135,9 @@ function App() {
       {screenMode === ScreenMode.secound && (
         <>
           <Box display="flex" alignItems="center" justifyContent="center">
-            <ZoomAnimation><Typography sx={{fontSize: 250}}>{timeLeft.seconds}</Typography></ZoomAnimation>
+            <ZoomAnimation>
+              <Typography sx={{ fontSize: 250 }}>{timeLeft.seconds}</Typography>
+            </ZoomAnimation>
           </Box>
         </>
       )}
