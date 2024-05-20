@@ -1,8 +1,9 @@
-import WebApp from '@twa-dev/sdk'
+import WebApp from "@twa-dev/sdk"
 import { Avatar, Box, Icon } from "@mui/material"
 import FavoriteIcon from "@mui/icons-material/Favorite"
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
+import PersonIcon from "@mui/icons-material/Person"
 
 const AppBar = () => {
   function stringToColor(string: string) {
@@ -42,7 +43,13 @@ const AppBar = () => {
       alignItems="center"
     >
       <Box display="flex">
-        <Avatar src={WebApp.initDataUnsafe.user?.photo_url} {...stringAvatar(`${WebApp.initDataUnsafe.user?.first_name} ${WebApp.initDataUnsafe.user?.last_name}`)} />
+        <Avatar
+          src={WebApp.initDataUnsafe.user?.photo_url}
+          {...stringAvatar(WebApp.initDataUnsafe.user?.username || "")}
+        >
+          
+          <PersonIcon />
+        </Avatar>
         {/* User profile picture would go here */}
         <Box display="flex" alignItems="center" sx={{ ml: 2 }}>
           <Icon>
