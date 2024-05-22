@@ -36,7 +36,7 @@ function stringAvatar(name: string) {
 }
 
 const AppBar = () => {
-  const [heartCount, setHeartCount] = useState(3)
+  const [heartCount, _] = useState(3)
 
   return (
     <Box
