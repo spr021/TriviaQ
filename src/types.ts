@@ -3,3 +3,10 @@ export enum ScreenMode {
   secound,
   quiz
 }
+
+export interface TimeLeft {
+  seconds: number
+  hours: string
+  minutes: string
+  formattedSeconds: string
+}
